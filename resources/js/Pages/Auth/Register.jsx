@@ -5,7 +5,6 @@ import InputLabel from '@/Components/InputLabel';
 import PrimaryButton from '@/Components/PrimaryButton';
 import TextInput from '@/Components/TextInput';
 import { Head, Link, useForm } from '@inertiajs/react';
-// const current = new Date().toISOString().split("T")[0]
 
 export default function Register() {
     const { data, setData, post, processing, errors, reset } = useForm({

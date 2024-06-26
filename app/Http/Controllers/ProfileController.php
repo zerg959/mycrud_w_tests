@@ -13,6 +13,17 @@ use Inertia\Response;
 
 class ProfileController extends Controller
 {
+  /**
+   * Show profile data
+   * 
+   */
+  public function show(string $id): Response
+  {
+      return Inertia::render('Profile/Show', [
+          'user' => User::findOrFail($id)
+      ]);
+  }
+
     /**
      * Display the user's profile form.
      */   
@@ -60,4 +71,5 @@ class ProfileController extends Controller
 
         return Redirect::to('/');
     }
+
 }

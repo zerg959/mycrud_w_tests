@@ -1,7 +1,9 @@
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
-import { Head } from '@inertiajs/react';
+import { Head, usePage } from '@inertiajs/react';
+import User from '@/Components/User';
 
 export default function Dashboard(props) {
+  const { userslist } = usePage().props
     return (
         <AuthenticatedLayout
             auth={props.auth}
@@ -17,6 +19,15 @@ export default function Dashboard(props) {
                     </div>
                 </div>
             </div>
+            <div className="max-w-2xl mx-auto p-4 sm:p-6 lg:p-8">
+            <div className="mt-6 bg-white shadow-sm rounded-lg divide-y">
+                    {userslist.map(user =>
+                        <User key={user.id} user={user} />
+                    )}
+                </div>
+            </div>
         </AuthenticatedLayout>
+
     );
+    
 }
